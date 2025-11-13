@@ -213,6 +213,33 @@ let elementoActual = null;
 let guiaVozPausada = false;
 
 // Funciones de modal
+function manejarCambioDeRol(selectElement) {
+    const rol = selectElement.value;
+    const form = selectElement.closest('form');
+    const grupoInstitucion = form.querySelector('#form-group-institucion');
+    const grupoCodigoAcceso = form.querySelector('#form-group-codigo-acceso');
+
+    if (rol === 'estudiante') {
+        if (grupoInstitucion) grupoInstitucion.style.display = 'none';
+        if (grupoCodigoAcceso) {
+            grupoCodigoAcceso.style.display = 'block';
+            form.querySelector('#codigo-acceso').required = true;
+        }
+        if (form.querySelector('#institucion')) {
+            form.querySelector('#institucion').required = false;
+        }
+    } else {
+        if (grupoInstitucion) grupoInstitucion.style.display = 'block';
+        if (grupoCodigoAcceso) {
+            grupoCodigoAcceso.style.display = 'none';
+            form.querySelector('#codigo-acceso').required = false;
+        }
+        if (form.querySelector('#institucion')) {
+            form.querySelector('#institucion').required = true;
+        }
+    }
+}
+
 function mostrarModalRegistro() {
     document.getElementById('modal-title').textContent = 'Registro en ArcoEdu';
     document.getElementById('modal-body').innerHTML = `
@@ -225,13 +252,13 @@ function mostrarModalRegistro() {
                 <label for="email">Correo electrónico</label>
                 <input type="email" id="email" name="email" required placeholder="maria@escuela.edu">
             </div>
-            <div class="form-group">
+            <div class="form-group" id="form-group-institucion">
                 <label for="institucion">Institución educativa</label>
                 <input type="text" id="institucion" name="institucion" required placeholder="Ej: Escuela Primaria San Martín">
             </div>
             <div class="form-group">
-                <label for="rol">Rol</label>
-                <select id="rol" name="rol" required>
+                <label for="rol">Tu rol</label>
+                <select id="rol" name="rol" required onchange="manejarCambioDeRol(this)">
                     <option value="">Selecciona tu rol</option>
                     <option value="docente">Docente</option>
                     <option value="estudiante">Estudiante</option>
@@ -239,6 +266,10 @@ function mostrarModalRegistro() {
                     <option value="coordinador">Coordinador pedagógico</option>
                     <option value="otro">Otro</option>
                 </select>
+            </div>
+            <div class="form-group" id="form-group-codigo-acceso" style="display: none;">
+                <label for="codigo-acceso">Código de acceso del docente</label>
+                <input type="text" id="codigo-acceso" name="codigo" placeholder="Código proporcionado por tu docente">
             </div>
             <div class="form-group">
                 <label for="password">Contraseña</label>
@@ -249,9 +280,6 @@ function mostrarModalRegistro() {
         <div class="text-center" style="margin-top: 1rem;">
             <p class="text-muted">¿Ya tienes cuenta? 
                 <button class="link-button" onclick="mostrarModalLogin()">Inicia sesión aquí</button>
-            </p>
-            <p class="text-muted">¿Eres estudiante? 
-                <button class="link-button" onclick="mostrarModalRegistroEstudiante()">Regístrate como estudiante</button>
             </p>
         </div>
     `;
@@ -311,22 +339,30 @@ function procesarRegistro(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const datos = Object.fromEntries(formData);
-    
-    // Simular registro exitoso
+
     usuarioActual = {
         nombre: datos.nombre,
         email: datos.email,
-        institucion: datos.institucion,
         rol: datos.rol
     };
-    
+
+    if (datos.rol === 'estudiante') {
+        usuarioActual.codigoAcceso = datos.codigo;
+    } else {
+        usuarioActual.institucion = datos.institucion;
+    }
+
     localStorage.setItem('usuarioArcoEdu', JSON.stringify(usuarioActual));
-    
+
     cerrarModal();
     mostrarNotificacion('¡Cuenta creada exitosamente! Bienvenido a ArcoEdu', 'success');
-    
+
     setTimeout(() => {
-        mostrarDashboard();
+        if (usuarioActual.rol === 'estudiante') {
+            mostrarDashboardEstudiante();
+        } else {
+            mostrarDashboard();
+        }
     }, 1500);
 }
 
@@ -1209,67 +1245,6 @@ function mostrarNotificacion(mensaje, tipo = 'info') {
     setTimeout(() => {
         notification.classList.remove('show');
     }, 4000);
-}
-
-// Funciones adicionales
-function mostrarModalRegistroEstudiante() {
-    document.getElementById('modal-title').textContent = 'Acceso para Estudiantes';
-    document.getElementById('modal-body').innerHTML = `
-        <form onsubmit="procesarRegistroEstudiante(event)">
-            <div class="form-group">
-                <label for="nombre-estudiante">Nombre completo</label>
-                <input type="text" id="nombre-estudiante" name="nombre" required placeholder="Tu nombre completo">
-            </div>
-            <div class="form-group">
-                <label for="email-estudiante">Correo electrónico</label>
-                <input type="email" id="email-estudiante" name="email" required placeholder="tu@email.com">
-            </div>
-            <div class="form-group">
-                <label for="codigo-acceso">Código de acceso del docente</label>
-                <input type="text" id="codigo-acceso" name="codigo" required placeholder="Código proporcionado por tu docente">
-            </div>
-            <div class="form-group">
-                <label for="necesidades">Necesidades de accesibilidad</label>
-                <select id="necesidades" name="necesidades" required>
-                    <option value="">Selecciona una opción</option>
-                    <option value="baja-vision">Baja visión</option>
-                    <option value="ceguera">Ceguera total</option>
-                    <option value="dislexia">Dislexia</option>
-                    <option value="otras">Otras necesidades</option>
-                </select>
-            </div>
-            <button type="submit" class="btn-primary btn-full">Acceder como estudiante</button>
-        </form>
-        <div class="text-center" style="margin-top: 1rem;">
-            <p class="text-muted">¿Eres docente? 
-                <button class="link-button" onclick="mostrarModalRegistro()">Regístrate aquí</button>
-            </p>
-        </div>
-    `;
-    document.getElementById('modal-overlay').classList.add('active');
-}
-
-function procesarRegistroEstudiante(event) {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const datos = Object.fromEntries(formData);
-    
-    usuarioActual = {
-        nombre: datos.nombre,
-        email: datos.email,
-        rol: 'estudiante',
-        necesidades: datos.necesidades,
-        codigoAcceso: datos.codigo
-    };
-    
-    localStorage.setItem('usuarioArcoEdu', JSON.stringify(usuarioActual));
-    
-    cerrarModal();
-    mostrarNotificacion('¡Acceso concedido! Bienvenido estudiante', 'success');
-    
-    setTimeout(() => {
-        mostrarDashboardEstudiante();
-    }, 1500);
 }
 
 function mostrarDashboardEstudiante() {
