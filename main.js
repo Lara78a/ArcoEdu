@@ -585,7 +585,7 @@ function mostrarReproductorAudio(archivo) {
         <div style="text-align: center; padding: 2rem;">
             <div style="background: #f8f9fa; border-radius: 15px; padding: 2rem; margin-bottom: 2rem;">
                 <h4 style="margin-bottom: 1rem;">📖 ${archivo.nombre}</h4>
-                <p style="color: #6c757d; margin-bottom: 2rem;">Audio generado con voz natural de alta calidad</p>
+                <p style="color: #000; margin-bottom: 2rem;">Audio generado con voz natural de alta calidad</p>
                 
                 <!-- Reproductor de audio real -->
                 <div style="background: white; border-radius: 10px; padding: 1.5rem; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
@@ -598,9 +598,9 @@ function mostrarReproductorAudio(archivo) {
                     </div>
                     
                     <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
-                        <button onclick="changeRealSpeed(-0.25)" style="background: #6c757d; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer;">🐌 -</button>
+                        <button onclick="changeRealSpeed(-0.25)" style="background: #000; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer;">🐌 -</button>
                         <span id="speed-display" style="padding: 0.5rem 1rem; background: #e9ecef; border-radius: 5px;">1.0x</span>
-                        <button onclick="changeRealSpeed(0.25)" style="background: #6c757d; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer;">🐰 +</button>
+                        <button onclick="changeRealSpeed(0.25)" style="background: #000; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer;">🐰 +</button>
                     </div>
                     
                     <div style="margin-bottom: 1rem;">
@@ -610,7 +610,7 @@ function mostrarReproductorAudio(archivo) {
                         </select>
                     </div>
                     
-                    <div id="texto-contenido" style="font-style: italic; color: #6c757d; font-size: 0.9rem; background: #f8f9fa; padding: 1rem; border-radius: 8px; text-align: left; max-height: 150px; overflow-y: auto;">
+                    <div id="texto-contenido" style="font-style: italic; color: #000; font-size: 0.9rem; background: #f8f9fa; padding: 1rem; border-radius: 8px; text-align: left; max-height: 150px; overflow-y: auto;">
                         ${generarTextoDemo(archivo.nombre)}
                     </div>
                 </div>
@@ -635,14 +635,14 @@ function mostrarVisorBraille(archivo) {
         <div style="padding: 1rem;">
             <div style="background: #f8f9fa; border-radius: 15px; padding: 2rem; margin-bottom: 2rem;">
                 <h4 style="margin-bottom: 1rem;">📖 ${archivo.nombre}</h4>
-                <p style="color: #6c757d; margin-bottom: 2rem;">Contenido convertido a Braille digital</p>
+                <p style="color: #000; margin-bottom: 2rem;">Contenido convertido a Braille digital</p>
                 
                 <div style="background: white; border-radius: 10px; padding: 2rem; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-bottom: 2rem;">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
                         <h5>Texto en Braille:</h5>
                         <div>
-                            <button onclick="cambiarTamañoBraille(-2)" style="background: #6c757d; color: white; border: none; padding: 0.25rem 0.5rem; border-radius: 3px; cursor: pointer;">A-</button>
-                            <button onclick="cambiarTamañoBraille(2)" style="background: #6c757d; color: white; border: none; padding: 0.25rem 0.5rem; border-radius: 3px; cursor: pointer; margin-left: 0.25rem;">A+</button>
+                            <button onclick="cambiarTamañoBraille(-2)" style="background: #000; color: white; border: none; padding: 0.25rem 0.5rem; border-radius: 3px; cursor: pointer;">A-</button>
+                            <button onclick="cambiarTamañoBraille(2)" style="background: #000; color: white; border: none; padding: 0.25rem 0.5rem; border-radius: 3px; cursor: pointer; margin-left: 0.25rem;">A+</button>
                         </div>
                     </div>
                     
@@ -1293,7 +1293,7 @@ function mostrarDashboardEstudiante() {
                     <div style="background: #f8f9fa; padding: 2rem; border-radius: 15px;">
                         <h3>🎧 Reproductor</h3>
                         <div id="reproductor-estudiante" style="text-align: center; padding: 2rem;">
-                            <p style="color: #6c757d;">Selecciona un material para comenzar a escuchar</p>
+                            <p style="color: #000;">Selecciona un material para comenzar a escuchar</p>
                             <div style="margin-top: 2rem;">
                                 <button disabled class="btn-secondary">▶️ Reproducir</button>
                             </div>
@@ -1346,7 +1346,7 @@ function reproducirMaterial(id) {
         <div style="background: #e9ecef; height: 8px; border-radius: 4px; margin: 1rem 0;">
             <div id="progreso-material" style="background: #4a90e2; height: 100%; width: 0%; border-radius: 4px; transition: width 0.3s ease;"></div>
         </div>
-        <p style="font-size: 0.9rem; color: #6c757d;">
+        <p style="font-size: 0.9rem; color: #000;">
             "Había una vez un príncipe que vivía en un palacio muy grande..."
         </p>
     `;
@@ -1444,7 +1444,7 @@ function mostrarEstudiantes() {
             <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
                 <strong>Código de acceso para estudiantes:</strong> 
                 <span style="background: #4a90e2; color: white; padding: 0.25rem 0.75rem; border-radius: 15px; font-family: monospace;">EDU-${usuarioActual.email.substring(0,3).toUpperCase()}2024</span>
-                <button onclick="copiarCodigo()" style="margin-left: 0.5rem; background: #6c757d; color: white; border: none; padding: 0.25rem 0.5rem; border-radius: 3px; cursor: pointer;">📋 Copiar</button>
+                <button onclick="copiarCodigo()" style="margin-left: 0.5rem; background: #000; color: white; border: none; padding: 0.25rem 0.5rem; border-radius: 3px; cursor: pointer;">📋 Copiar</button>
             </div>
             
             <div style="max-height: 400px; overflow-y: auto;">
@@ -1453,7 +1453,7 @@ function mostrarEstudiantes() {
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <div>
                                 <strong>${estudiante.nombre}</strong>
-                                <div style="font-size: 0.9rem; color: #6c757d;">
+                                <div style="font-size: 0.9rem; color: #000;">
                                     📧 ${estudiante.email} • 
                                     🔍 ${getNecesidadLabel(estudiante.necesidades)} • 
                                     📅 Último acceso: ${estudiante.ultimoAcceso}
@@ -1625,7 +1625,7 @@ function mostrarReportes() {
                 ${reporteData.actividadReciente.map(actividad => `
                     <div style="padding: 0.75rem; background: white; border-radius: 5px; margin-bottom: 0.5rem; border-left: 4px solid #4a90e2;">
                         <div style="font-weight: bold;">${actividad.accion}</div>
-                        <div style="font-size: 0.9rem; color: #6c757d;">${actividad.fecha} • ${actividad.usuario}</div>
+                        <div style="font-size: 0.9rem; color: #000;">${actividad.fecha} • ${actividad.usuario}</div>
                     </div>
                 `).join('')}
             </div>
