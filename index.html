@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="es">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ArcoEdu - Educación Accesible para Todos</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body>
+  <header role="banner">
+   <div class="container">
+    <div class="header-content"><a href="#" class="logo" aria-label="ArcoEdu - Inicio">
+      <svg class="logo-icon" viewbox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5 25C5 15 13 7 20 7C27 7 35 15 35 25" stroke="#4a90e2" stroke-width="3" stroke-linecap="round" /> <path d="M8 25C8 17 13 12 20 12C27 12 32 17 32 25" stroke="#f1c40f" stroke-width="2" stroke-linecap="round" /> <path d="M11 25C11 19 15 15 20 15C25 15 29 19 29 25" stroke="#e74c3c" stroke-width="2" stroke-linecap="round" /> <rect x="15" y="25" width="10" height="8" rx="2" fill="#2c3e50" /> <path d="M17 27H23M17 29H23M17 31H21" stroke="white" stroke-width="1" />
+      </svg> ArcoEdu </a>
+     <nav role="navigation" aria-label="Navegación principal">
+      <ul>
+       <li><a href="#inicio">Inicio</a></li>
+       <li><a href="#como-funciona">Cómo funciona</a></li>
+       <li><a href="#docentes">Para docentes</a></li>
+       <li><a href="#alumnos">Para alumnos</a></li>
+       <li><a href="#contacto">Contacto</a></li>
+       <li><a href="#" class="btn-primary" onclick="mostrarModalRegistro()">Probar gratis</a></li>
+       <li><button class="accessibility-toggle" onclick="toggleAccessibilityMode()" aria-label="Cambiar modo de accesibilidad" title="Modo normal"> 🌙 </button></li>
+      </ul>
+     </nav>
+    </div>
+   </div>
+  </header>
+  <main role="main">
+   <section id="inicio" class="hero" aria-labelledby="hero-title">
+    <div class="hero-content">
+     <div class="hero-text">
+      <h1 id="hero-title">📖 Educación accesible para todos</h1>
+      <p>ArcoEdu convierte textos escolares en audiolibros o lecturas por voz para estudiantes con discapacidad visual.</p>
+      <div class="hero-buttons"><a href="#" class="btn-primary" onclick="mostrarModalRegistro()">Comenzar ahora</a> <a href="#como-funciona" class="btn-secondary">Ver cómo funciona</a>
+      </div>
+     </div>
+     <div class="hero-image">
+      <svg class="hero-illustration" viewbox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-labelledby="hero-img-title">
+       <title id="hero-img-title">Profesor subiendo documento mientras alumno escucha con auriculares</title><!-- Teacher figure --> <circle cx="120" cy="80" r="25" fill="#f4a261" /> <rect x="95" y="105" width="50" height="80" rx="25" fill="#2a9d8f" /> <rect x="85" y="120" width="70" height="40" rx="5" fill="#264653" /> <!-- Student figure --> <circle cx="280" cy="80" r="25" fill="#e76f51" /> <rect x="255" y="105" width="50" height="80" rx="25" fill="#e9c46a" /> <!-- Headphones --> <ellipse cx="280" cy="75" rx="35" ry="15" fill="#2c3e50" /> <circle cx="260" cy="75" r="8" fill="#34495e" /> <circle cx="300" cy="75" r="8" fill="#34495e" /> <!-- Document --> <rect x="90" y="200" width="60" height="80" rx="5" fill="white" stroke="#bdc3c7" stroke-width="2" /> <line x1="100" y1="220" x2="140" y2="220" stroke="#2c3e50" stroke-width="2" /> <line x1="100" y1="230" x2="140" y2="230" stroke="#2c3e50" stroke-width="1" /> <line x1="100" y1="240" x2="135" y2="240" stroke="#2c3e50" stroke-width="1" /> <!-- Upload arrow --> <path d="M170 240L190 220L210 240" stroke="#4a90e2" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" /> <line x1="190" y1="220" x2="190" y2="260" stroke="#4a90e2" stroke-width="3" stroke-linecap="round" /> <!-- Sound waves --> <path d="M320 90C325 85 325 95 320 90" stroke="#f1c40f" stroke-width="2" fill="none" /> <path d="M330 85C340 75 340 105 330 95" stroke="#f1c40f" stroke-width="2" fill="none" /> <path d="M340 80C355 65 355 115 340 100" stroke="#f1c40f" stroke-width="2" fill="none" />
+      </svg>
+     </div>
+    </div>
+   </section>
+   <section id="como-funciona" class="how-it-works" aria-labelledby="how-title">
+    <div class="container">
+     <h2 id="how-title" class="section-title">¿Cómo funciona ArcoEdu?</h2>
+     <div class="steps">
+      <div class="step">
+       <div class="step-icon" aria-hidden="true">
+        📄
+       </div>
+       <h3>Paso 1: Subir contenido</h3>
+       <p>El docente sube el texto, apunte o material educativo a la plataforma de forma sencilla y rápida.</p>
+      </div>
+      <div class="step">
+       <div class="step-icon" aria-hidden="true">
+        🔄
+       </div>
+       <h3>Paso 2: Transformación automática</h3>
+       <p>ArcoEdu convierte automáticamente el contenido en audio de alta calidad o formato Braille digital.</p>
+      </div>
+      <div class="step">
+       <div class="step-icon" aria-hidden="true">
+        📤
+       </div>
+       <h3>Paso 3: Compartir fácilmente</h3>
+       <p>El material adaptado se comparte instantáneamente con los alumnos a través de la plataforma.</p>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section id="docentes" aria-labelledby="features-title">
+    <div class="container">
+     <h2 id="features-title" class="section-title">Para Docentes</h2>
+     <div class="section-intro">
+      <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem; color: #6c757d;">Herramientas diseñadas especialmente para educadores comprometidos con la inclusión</p>
+     </div>
+     <div class="features">
+      <div class="feature">
+       <div class="feature-icon" aria-hidden="true">
+        📚
+       </div>
+       <h3>Cargar materiales</h3>
+       <p>Sube textos, apuntes y materiales del aula de manera intuitiva. Formatos PDF, DOC, TXT compatibles.</p>
+      </div>
+      <div class="feature">
+       <div class="feature-icon" aria-hidden="true">
+        🎧
+       </div>
+       <h3>Generar audio</h3>
+       <p>Crea versiones habladas con voces naturales y de alta calidad. Controla velocidad y entonación.</p>
+      </div>
+      <div class="feature">
+       <div class="feature-icon" aria-hidden="true">
+        ⠃
+       </div>
+       <h3>Braille digital</h3>
+       <p>Convierte automáticamente el texto a formato Braille digital compatible con lectores especializados.</p>
+      </div>
+      <div class="feature">
+       <div class="feature-icon" aria-hidden="true">
+        👥
+       </div>
+       <h3>Compartir fácilmente</h3>
+       <p>Distribuye el contenido adaptado a todos tus alumnos al instante por email o enlace directo.</p>
+      </div>
+      <div class="feature">
+       <div class="feature-icon" aria-hidden="true">
+        📊
+       </div>
+       <h3>Seguimiento de uso</h3>
+       <p>Monitorea qué materiales usan más tus estudiantes y obtén estadísticas de accesibilidad.</p>
+      </div>
+      <div class="feature">
+       <div class="feature-icon" aria-hidden="true">
+        🔧
+       </div>
+       <h3>Personalización</h3>
+       <p>Ajusta configuraciones de audio, velocidad de lectura y formato según las necesidades específicas.</p>
+      </div>
+     </div>
+     <div style="text-align: center; margin-top: 3rem;"><a href="#" class="btn-primary" onclick="mostrarModalRegistro()">Comenzar como docente</a>
+     </div>
+    </div>
+   </section>
+   <section id="alumnos" aria-labelledby="students-title">
+    <div class="container">
+     <h2 id="students-title" class="section-title">Para Alumnos</h2>
+     <div class="section-intro">
+      <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem; color: #6c757d;">Accede a todo tu material educativo de forma accesible y personalizada</p>
+     </div>
+     <div class="features">
+      <div class="feature">
+       <div class="feature-icon" aria-hidden="true">
+        📱
+       </div>
+       <h3>Acceso móvil</h3>
+       <p>Escucha tus materiales desde cualquier dispositivo: celular, tablet o computadora.</p>
+      </div>
+      <div class="feature">
+       <div class="feature-icon" aria-hidden="true">
+        🎵
+       </div>
+       <h3>Control de reproducción</h3>
+       <p>Pausa, retrocede, acelera o ralentiza la lectura según tu ritmo de aprendizaje.</p>
+      </div>
+      <div class="feature">
+       <div class="feature-icon" aria-hidden="true">
+        📖
+       </div>
+       <h3>Biblioteca personal</h3>
+       <p>Organiza todos tus materiales en una biblioteca personal fácil de navegar.</p>
+      </div>
+      <div class="feature">
+       <div class="feature-icon" aria-hidden="true">
+        🔍
+       </div>
+       <h3>Búsqueda inteligente</h3>
+       <p>Encuentra rápidamente contenido específico dentro de tus materiales de estudio.</p>
+      </div>
+      <div class="feature">
+       <div class="feature-icon" aria-hidden="true">
+        💾
+       </div>
+       <h3>Descarga offline</h3>
+       <p>Descarga tus audiolibros para estudiar sin conexión a internet.</p>
+      </div>
+      <div class="feature">
+       <div class="feature-icon" aria-hidden="true">
+        🎯
+       </div>
+       <h3>Marcadores</h3>
+       <p>Crea marcadores en partes importantes para repasar fácilmente.</p>
+      </div>
+     </div>
+     <div style="text-align: center; margin-top: 3rem;"><a href="#" class="btn-secondary" onclick="mostrarModalRegistroEstudiante()">Acceder como estudiante</a>
+     </div>
+    </div>
+   </section>
+   <section id="contacto" aria-labelledby="contact-title">
+    <div class="container">
+     <h2 id="contact-title" class="section-title">Contacto</h2>
+     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
+      <div>
+       <h3 style="margin-bottom: 1.5rem;">¿Necesitas ayuda?</h3>
+       <p style="margin-bottom: 2rem; color: #6c757d;">Estamos aquí para ayudarte a hacer tu educación más inclusiva. Contáctanos y te responderemos en menos de 24 horas.</p>
+       <div style="margin-bottom: 2rem;">
+        <h4 style="color: #4a90e2; margin-bottom: 1rem;">📧 Email</h4>
+        <p>soporte@arcoedu.com</p>
+        <p>info@arcoedu.com</p>
+       </div>
+       <div style="margin-bottom: 2rem;">
+        <h4 style="color: #4a90e2; margin-bottom: 1rem;">📞 Teléfono</h4>
+        <p>+54 11 1234-5678</p>
+        <p>Lunes a Viernes: 9:00 - 18:00 hs</p>
+       </div>
+       <div>
+        <h4 style="color: #4a90e2; margin-bottom: 1rem;">🏢 Oficina</h4>
+        <p>Buenos Aires, Argentina</p>
+        <p>Disponible para reuniones virtuales</p>
+       </div>
+      </div>
+      <div>
+       <form onsubmit="enviarContacto(event)" style="background: #f8f9fa; padding: 2rem; border-radius: 15px;">
+        <h3 style="margin-bottom: 1.5rem;">Envíanos un mensaje</h3>
+        <div class="form-group"><label for="nombre-contacto">Nombre completo</label> <input type="text" id="nombre-contacto" name="nombre" required>
+        </div>
+        <div class="form-group"><label for="email-contacto">Email</label> <input type="email" id="email-contacto" name="email" required>
+        </div>
+        <div class="form-group"><label for="asunto-contacto">Asunto</label> <select id="asunto-contacto" name="asunto" required> <option value="">Selecciona un tema</option> <option value="soporte">Soporte técnico</option> <option value="demo">Solicitar demo</option> <option value="institucional">Convenio institucional</option> <option value="accesibilidad">Consulta sobre accesibilidad</option> <option value="otro">Otro</option> </select>
+        </div>
+        <div class="form-group"><label for="mensaje-contacto">Mensaje</label> <textarea id="mensaje-contacto" name="mensaje" rows="4" required placeholder="Cuéntanos cómo podemos ayudarte..."></textarea>
+        </div><button type="submit" class="btn-primary btn-full">Enviar mensaje</button>
+       </form>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="purpose" aria-labelledby="purpose-title">
+    <div class="container">
+     <h2 id="purpose-title" class="section-title">Nuestro propósito</h2>
+     <p class="purpose-text">🎯 Nuestro propósito es facilitar el acceso al material de lectura a estudiantes con baja visión o ceguera, impulsando una educación inclusiva y justa.</p>
+    </div>
+   </section>
+   <section class="cta" aria-labelledby="cta-title">
+    <div class="container">
+     <h2 id="cta-title" class="section-title">Únete al cambio educativo</h2>
+     <p class="cta-text">Sé parte del cambio educativo. Hacé que tus clases sean accesibles para todos.</p><a href="#" class="btn-golden" onclick="mostrarModalRegistro()">Crear cuenta docente</a>
+    </div>
+   </section>
+  </main>
+  <footer role="contentinfo">
+   <div class="container">
+    <div class="footer-content">
+     <div class="footer-section">
+      <h4>ArcoEdu</h4><a href="#sobre-nosotros">Sobre nosotros</a> <a href="#privacidad">Política de privacidad</a> <a href="#terminos">Términos de uso</a>
+     </div>
+     <div class="footer-section">
+      <h4>Soporte</h4><a href="#ayuda">Centro de ayuda</a> <a href="#contacto">Contacto</a> <a href="#accesibilidad">Declaración de accesibilidad</a>
+     </div>
+     <div class="footer-section">
+      <h4>Síguenos</h4><a href="#facebook" aria-label="Facebook de ArcoEdu">Facebook</a> <a href="#twitter" aria-label="Twitter de ArcoEdu">Twitter</a> <a href="#linkedin" aria-label="LinkedIn de ArcoEdu">LinkedIn</a>
+     </div>
+    </div>
+    <div class="footer-bottom">
+     <p>© 2024 ArcoEdu. Todos los derechos reservados. Comprometidos con la educación inclusiva.</p>
+    </div>
+   </div>
+  </footer>
+  <!-- Modales -->
+  <div id="modal-overlay" class="modal-overlay" onclick="cerrarModal()">
+   <div class="modal-content" onclick="event.stopPropagation()">
+    <div class="modal-header">
+     <h3 id="modal-title">Registro en ArcoEdu</h3><button class="modal-close" onclick="cerrarModal()" aria-label="Cerrar modal">×</button>
+    </div>
+    <div class="modal-body" id="modal-body"><!-- Contenido dinámico -->
+    </div>
+   </div>
+  </div><!-- Notificaciones -->
+  <div id="notification" class="notification"></div>
+  <!-- Modal de Guía de Voz -->
+  <div id="modal-guia-voz" class="modal-overlay">
+   <div class="modal-content" onclick="event.stopPropagation()" style="max-width: 600px;">
+    <div class="modal-header">
+     <h3>🔊 Asistente de Voz para Navegación</h3><button class="modal-close" onclick="cerrarModalGuiaVoz()" aria-label="Cerrar modal">×</button>
+    </div>
+    <div class="modal-body">
+     <div style="text-align: center; margin-bottom: 2rem;">
+      <div style="font-size: 4rem; margin-bottom: 1rem;">
+       🎧
+      </div>
+      <h4 style="margin-bottom: 1rem;">¿Necesitas ayuda para navegar por la página?</h4>
+      <p style="color: #6c757d; margin-bottom: 2rem; line-height: 1.6;">Nuestro asistente de voz puede guiarte paso a paso por toda la página web, describiendo cada elemento, botón y sección para que puedas navegar fácilmente.</p>
+     </div>
+     <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem;">
+      <h5 style="margin-bottom: 1rem;">🎯 ¿Qué hace el asistente de voz?</h5>
+      <ul style="text-align: left; color: #6c757d; line-height: 1.8;">
+       <li>📢 <strong>Describe cada elemento</strong> cuando pasas el cursor sobre él</li>
+       <li>🗣️ <strong>Lee automáticamente</strong> títulos, botones y enlaces</li>
+       <li>📍 <strong>Te indica dónde estás</strong> en cada momento</li>
+       <li>⌨️ <strong>Funciona con teclado</strong> usando Tab para navegar</li>
+       <li>🎛️ <strong>Controles de voz</strong> para pausar, acelerar o desactivar</li>
+      </ul>
+     </div>
+     <div style="background: #e3f2fd; padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem;">
+      <h5 style="margin-bottom: 1rem;">⌨️ Atajos de teclado útiles:</h5>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.9rem;">
+       <div>
+        <strong>Tab:</strong> Siguiente elemento
+       </div>
+       <div>
+        <strong>Shift + Tab:</strong> Elemento anterior
+       </div>
+       <div>
+        <strong>Enter:</strong> Activar botón/enlace
+       </div>
+       <div>
+        <strong>Espacio:</strong> Pausar/reanudar voz
+       </div>
+       <div>
+        <strong>Escape:</strong> Desactivar guía
+       </div>
+       <div>
+        <strong>F1:</strong> Ayuda de navegación
+       </div>
+      </div>
+     </div>
+     <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;"><button onclick="activarGuiaVoz()" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;"> 🔊 Sí, activar guía de voz </button> <button onclick="cerrarModalGuiaVoz()" class="btn-secondary" style="font-size: 1.1rem; padding: 1rem 2rem;"> 🚫 No, navegar sin ayuda </button>
+     </div>
+     <div style="text-align: center; margin-top: 1.5rem;"><label style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; color: #6c757d; font-size: 0.9rem;"> <input type="checkbox" id="no-mostrar-guia" style="margin: 0;"> No mostrar este mensaje de nuevo </label>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script src="main.js" defer></script>
+ </body>
+</html>
