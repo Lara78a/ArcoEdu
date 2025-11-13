@@ -300,6 +300,15 @@ body.colorblind-mode .modal-content {
     color: var(--text-colorblind) !important;
 }
 
+body.colorblind-mode #contact-form {
+    background: white !important;
+}
+
+body.colorblind-mode #contact-form h3,
+body.colorblind-mode #contact-form .form-group label {
+    color: var(--text-colorblind) !important;
+}
+
 body.colorblind-mode .notification.success {
     background: var(--success-colorblind) !important;
 }
@@ -996,6 +1005,20 @@ body.dark-mode .text-muted {
 
 .link-button:hover {
     color: #357abd;
+}
+
+/* Estilos para el formulario de contacto */
+#contact-form {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 15px;
+}
+
+body.dark-mode #contact-form {
+    background: #2a2a2a;
+}
+body.dark-mode #contact-form h3 {
+    color: #e0e0e0;
 }
 
 /* Notificaciones */

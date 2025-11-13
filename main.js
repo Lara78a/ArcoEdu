@@ -40,6 +40,7 @@ let estudiantes = [
 let guiaVozActiva = false;
 let guiaVozUtterance = null;
 let speechSynthesis = window.speechSynthesis;
+let availableVoices = []; // Para almacenar las voces disponibles
 let currentAudioUtterance = null; // Para controlar la reproducción
 
 // =================================================================
@@ -157,13 +158,9 @@ function mostrarModalRegistro() {
             </div>
             <div class="form-group">
                 <label for="rol">Rol</label>
-                <select id="rol" name="rol" required>
-                    <option value="">Selecciona tu rol</option>
+                <select id="rol" name="rol" required>f
                     <option value="docente">Docente</option>
                     <option value="estudiante">Estudiante</option>
-                    <option value="directivo">Directivo</option>
-                    <option value="coordinador">Coordinador pedagógico</option>
-                    <option value="otro">Otro</option>
                 </select>
             </div>
             <div class="form-group">
@@ -366,6 +363,14 @@ function mostrarDashboard() {
                             <button class="btn-secondary" onclick="mostrarEstudiantes()">👥 Gestionar estudiantes</button>
                             <button class="btn-secondary" onclick="mostrarReportes()">📊 Ver reportes</button>
                         </div>
+
+                        <div style="margin-top: 2rem;">
+                            <h4 style="margin-bottom: 0.5rem;">Configuración de Voz</h4>
+                            <div class="form-group">
+                                <label for="voice-select">Seleccionar Voz de Lectura</label>
+                                <select id="voice-select" name="voice-select" onchange="guardarPreferenciaVoz(this.value)"></select>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -396,6 +401,7 @@ function mostrarDashboard() {
             </div>
         </section>
     `;
+    populateVoiceList(); // Llenar el selector de voces
 }
 
 function cerrarSesion() {
@@ -810,10 +816,17 @@ async function convertirTextoAAudio(archivo) {
     // Web Speech API es limitado, usamos el contenido extraído
     const textoAConvertir = archivo.contenido; 
     
+    const savedVoiceURI = localStorage.getItem('preferredVoiceURI');
+    const selectedVoice = availableVoices.find(voice => voice.voiceURI === savedVoiceURI);
+
     currentAudioUtterance = new SpeechSynthesisUtterance(textoAConvertir);
     currentAudioUtterance.lang = "es-ES";
     currentAudioUtterance.rate = 1.0; // Velocidad normal
     
+    if (selectedVoice) {
+        currentAudioUtterance.voice = selectedVoice;
+    }
+
     currentAudioUtterance.onend = () => {
         mostrarNotificacion(`Reproducción de audio de ${archivo.nombre} finalizada.`, 'info');
     };
@@ -896,6 +909,35 @@ async function convertirArchivo(id, tipo) {
     }
 }
 
+// --- MANEJO DE VOCES ---
+
+function populateVoiceList() {
+    const voiceSelect = document.getElementById('voice-select');
+    if (!voiceSelect) return;
+
+    voiceSelect.innerHTML = ''; // Limpiar opciones anteriores
+    
+    // Filtramos las voces en español y nos quedamos solo con las 3 primeras.
+    const spanishVoices = speechSynthesis.getVoices().filter(voice => voice.lang.startsWith('es'));
+    availableVoices = spanishVoices.slice(0, 3);
+    
+    const savedVoiceURI = localStorage.getItem('preferredVoiceURI');
+
+    availableVoices.forEach(voice => {
+        const option = document.createElement('option');
+        option.textContent = `${voice.name} (${voice.lang})`;
+        option.value = voice.voiceURI;
+        if (voice.voiceURI === savedVoiceURI) {
+            option.selected = true;
+        }
+        voiceSelect.appendChild(option);
+    });
+}
+
+function guardarPreferenciaVoz(voiceURI) {
+    localStorage.setItem('preferredVoiceURI', voiceURI);
+    mostrarNotificacion('Preferencia de voz guardada.', 'info');
+}
 
 // =================================================================
 // 5. INICIALIZACIÓN DE LA APLICACIÓN
@@ -925,5 +967,7 @@ document.addEventListener('DOMContentLoaded', () => {
         speechSynthesis.onvoiceschanged = () => {
              // Voces cargadas.
         };
+        speechSynthesis.onvoiceschanged = populateVoiceList;
     }
+    populateVoiceList(); // Llamada inicial por si las voces ya están cargadas
 });

@@ -21,7 +21,6 @@
        <li><a href="#docentes">Para docentes</a></li>
        <li><a href="#alumnos">Para alumnos</a></li>
        <li><a href="#contacto">Contacto</a></li>
-       <li><a href="#" class="btn-primary" onclick="mostrarModalRegistro()">Probar gratis</a></li>
        <li><button class="accessibility-toggle" onclick="toggleAccessibilityMode()" aria-label="Cambiar modo de accesibilidad" title="Modo normal"> 🌙 </button></li>
       </ul>
      </nav>
@@ -204,7 +203,7 @@
        </div>
       </div>
       <div>
-       <form onsubmit="enviarContacto(event)" style="background: #f8f9fa; padding: 2rem; border-radius: 15px;">
+       <form id="contact-form" onsubmit="enviarContacto(event)">
         <h3 style="margin-bottom: 1.5rem;">Envíanos un mensaje</h3>
         <div class="form-group"><label for="nombre-contacto">Nombre completo</label> <input type="text" id="nombre-contacto" name="nombre" required>
         </div>
@@ -246,7 +245,7 @@
      </div>
     </div>
     <div class="footer-bottom">
-     <p>© 2024 ArcoEdu. Todos los derechos reservados. Comprometidos con la educación inclusiva.</p>
+     <p>© 2025 ArcoEdu. Todos los derechos reservados. Comprometidos con la educación inclusiva.</p>
     </div>
    </div>
   </footer>
