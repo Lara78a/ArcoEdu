@@ -158,7 +158,7 @@ function mostrarModalRegistro() {
             </div>
             <div class="form-group">
                 <label for="rol">Rol</label>
-                <select id="rol" name="rol" required>f
+                <select id="rol" name="rol" required>
                     <option value="docente">Docente</option>
                     <option value="estudiante">Estudiante</option>
                 </select>
@@ -964,9 +964,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // 4. Inicializar voces (es importante para que la Web Speech API funcione bien)
     if (speechSynthesis.onvoiceschanged !== undefined) {
-        speechSynthesis.onvoiceschanged = () => {
-             // Voces cargadas.
-        };
         speechSynthesis.onvoiceschanged = populateVoiceList;
     }
     populateVoiceList(); // Llamada inicial por si las voces ya están cargadas
