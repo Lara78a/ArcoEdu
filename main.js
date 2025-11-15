@@ -1589,24 +1589,24 @@ function mostrarReportes() {
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
                 <div style="background: #e3f2fd; padding: 1rem; border-radius: 8px; text-align: center;">
                     <div style="font-size: 2rem; font-weight: bold; color: #1976d2;">${reporteData.totalMateriales}</div>
-                    <div style="font-size: 0.9rem; color: #666;">Materiales totales</div>
+                    <div style="font-size: 0.9rem; color: #000;">Materiales totales</div>
                 </div>
                 <div style="background: #f3e5f5; padding: 1rem; border-radius: 8px; text-align: center;">
                     <div style="font-size: 2rem; font-weight: bold; color: #7b1fa2;">${reporteData.totalAudios}</div>
-                    <div style="font-size: 0.9rem; color: #666;">Audios generados</div>
+                    <div style="font-size: 0.9rem; color: #000;">Audios generados</div>
                 </div>
                 <div style="background: #e8f5e8; padding: 1rem; border-radius: 8px; text-align: center;">
                     <div style="font-size: 2rem; font-weight: bold; color: #388e3c;">${reporteData.totalBraille}</div>
-                    <div style="font-size: 0.9rem; color: #666;">Textos Braille</div>
+                    <div style="font-size: 0.9rem; color: #000;">Textos Braille</div>
                 </div>
                 <div style="background: #fff3e0; padding: 1rem; border-radius: 8px; text-align: center;">
                     <div style="font-size: 2rem; font-weight: bold; color: #f57c00;">${reporteData.estudiantesActivos}</div>
-                    <div style="font-size: 0.9rem; color: #666;">Estudiantes activos</div>
+                    <div style="font-size: 0.9rem; color: #000;">Estudiantes activos</div>
                 </div>
             </div>
 
             <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem;">
-                <h4 style="margin-bottom: 1rem;">📈 Uso por tipo de necesidad</h4>
+                <h4 style="margin-bottom: 1rem; color: black;">📈 Uso por tipo de necesidad</h4>
                 ${reporteData.usoNecesidades.map(item => `
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
                         <span>${item.tipo}</span>
